@@ -1,0 +1,95 @@
+{% extends 'base.html'%}  {%block title %}Home{% endblock%}
+
+<link rel="stylesheet" type="text/css" href="/static/index.css"> 
+{% block body %}
+
+
+    <div class="snowflakes" aria-hidden="true">
+      <div class="snowflake">
+        ❅
+      </div>
+      <div class="snowflake">
+        ❅
+      </div>
+      <div class="snowflake">
+        ❆
+      </div>
+      <div class="snowflake">
+        ❄
+      </div>
+      <div class="snowflake">
+        ❅
+      </div>
+      <div class="snowflake">
+        ❆
+      </div>
+      <div class="snowflake">
+        ❄
+      </div>
+      <div class="snowflake">
+        ❅
+      </div>
+      <div class="snowflake">
+        ❆
+      </div>
+      <div class="snowflake">
+        ❄
+      </div>
+    </div>
+
+
+
+
+    <form  action="/result" method="POST">
+
+
+
+      <center><label for="budget">Enter your Budget:</label></center>
+      <center><input type="number" name="budget" id="budget"></center>
+  
+
+      <center><label for="desc">Enter you Description:</label></center>
+      <center><input type="text" id="desc" name="desc"></center>
+      
+      <br/>
+      <br/>
+
+      {% if budget %}
+      <center>
+  
+      {% if budget > 900 %}
+      <h3 class="let_space">Recommended location</h3> <br/>
+       <h3> <center> {{e_city}} {{budget}} </center> </h3>
+      <h3  class="let_space">Average spending - <center> $1000 - $1500 </center> </h3>
+  
+      {% elif budget < 800 %}
+      <h4  class="let_space">Recommended location </h3>
+         <br/> <h3><center> {{m_city}} {{budget}} </center> </h3>
+      <h3  class="let_space">Average spending - <center> $500 - $800 </center> </h3>
+      </center> 
+  
+      {% else %}
+      <h3 class="let_space">Recommended location </h3>
+       <br/> <h3> <center>{{ne_city}} {{budget}} </center></h3>
+      <h3  class="let_space">Average spending - <center> $200 - $400 </center> </h3>
+      
+      
+  
+      {% endif %}
+  
+    {% endif %}
+
+    <br/>
+
+    <center>
+    <p> Your Budget: {{budget}}
+      <br />
+      Description Provided: {{desc}}
+    </p>
+  </center>
+
+      <center><input class="file_submit" type="Submit"></center>
+  
+    </form>
+
+{% endblock body %}

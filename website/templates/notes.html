@@ -1,0 +1,59 @@
+{% extends 'base.html'%}  {%block title %}Home{% endblock%}
+
+
+{% block body %}
+
+
+<form  action="/result" method="POST">
+
+  
+     
+    <label for="budget">Enter your Budget:</label>
+    <input type="number" name="budget" id="budget">
+
+    <input type="text" id="desc" name="desc">
+    <label for="desc">Enter you Description:</label>
+
+    {% if budget %}
+    <center>
+
+    {% if budget > 900 %}
+    <p> Your Budget: {{budget}}
+      <br />
+      Description Provided: {{desc}}
+    </p>
+    <h3 style="color: blue;" class="let_space">Recommended location : {{e_city}} {{budget}}</h3>
+
+    {% elif budget < 800 %}
+    <h3 style="color: blue;" class="let_space">Recommended location : {{m_city}} {{budget}}</h3>
+    </center> 
+
+    {% else %}
+    <h3 style="color: blue;" class="let_space">Recommended location : Jakarta {{budget}}</h3>
+    </center> 
+
+    {% endif %}
+
+  {% endif %}
+
+    
+
+    <center><input class="file_submit" type="Submit"></center>
+
+  </form>
+
+  
+
+  
+
+  
+  <br>
+  <br>
+  <br>
+
+
+<p>Here is my variable: {{ variable }}</p>
+
+        
+
+{% endblock body %}
